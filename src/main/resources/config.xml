@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<configs>
+
+	<server>192.168.100.25</server>
+	<port>21</port>
+	<root_dir>/</root_dir>
+	
+	<user_read>admin</user_read>
+	<senha_read>admin</senha_read>
+	
+	<user_write>admin</user_write>
+	<senha_write>admin</senha_write>
+	
+</configs>
