@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 import br.com.codiub.heimdall.config.LoadConfigs;
 
 @Component
-public class FTPConectionPMU implements FTPConection{
+public class FTPConectionONE implements FTPConection{
 	
 	@Autowired
 	private LoadConfigs loadConfigs = new LoadConfigs();

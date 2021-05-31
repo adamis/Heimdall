@@ -17,7 +17,7 @@ public class Main {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		FTPConectionPMU ftpConection = new FTPConectionPMU();
+		FTPConectionONE ftpConection = new FTPConectionONE();
 		try {
 			FTPList ftpList = new FTPList(ftpConection);
 			FTPFile[] folders = ftpList.getFolders();

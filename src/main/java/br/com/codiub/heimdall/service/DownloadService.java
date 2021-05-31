@@ -12,7 +12,7 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
-import br.com.codiub.heimdall.ftp.FTPConectionPMU;
+import br.com.codiub.heimdall.ftp.FTPConectionONE;
 import br.com.codiub.heimdall.ftp.FTPDownload;
 import br.com.codiub.heimdall.utils.ResizeImages;
 import br.com.codiub.heimdall.utils.Utils;
@@ -29,7 +29,7 @@ public class DownloadService {
 
 			folder = Utils.cleanFolderUrl(folder);
 
-			FTPConectionPMU ftpConection = new FTPConectionPMU();
+			FTPConectionONE ftpConection = new FTPConectionONE();
 			FTPDownload ftpDownload;
 
 			ftpDownload = new FTPDownload(ftpConection);
@@ -70,7 +70,7 @@ public class DownloadService {
 
 			folder = Utils.cleanFolderUrl(folder);
 
-			FTPConectionPMU ftpConection = new FTPConectionPMU();
+			FTPConectionONE ftpConection = new FTPConectionONE();
 			FTPDownload ftpDownload;
 
 			ftpDownload = new FTPDownload(ftpConection);
@@ -123,7 +123,7 @@ public class DownloadService {
 				folder = folder +"/";
 			}
 
-			FTPConectionPMU ftpConection = new FTPConectionPMU();
+			FTPConectionONE ftpConection = new FTPConectionONE();
 			FTPDownload ftpDownload;
 
 			ftpDownload = new FTPDownload(ftpConection);
