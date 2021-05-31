@@ -18,10 +18,10 @@ public class LoadConfigs {
 
 	public void loadConfigs() throws Exception {
 		if(
-				FTPUtil.SERVER == null &&
-				FTPUtil.USER_READ == null &&
-				FTPUtil.SENHA_READ == null &&
-				FTPUtil.USER_WRITE == null &&
+				FTPUtil.SERVER == null ||
+				FTPUtil.USER_READ == null ||
+				FTPUtil.SENHA_READ == null ||
+				FTPUtil.USER_WRITE == null ||
 				FTPUtil.SENHA_WRITE == null 			
 		) {
 
@@ -66,7 +66,14 @@ public class LoadConfigs {
 			System.err.println("USER_WRITE: "+FTPUtil.USER_WRITE);
 			System.err.println("SENHA_WRITE: "+FTPUtil.SENHA_WRITE);
 		}else {
-			System.err.println("Conexao nao Configurado!");
+			System.err.println("SERVER: "+FTPUtil.SERVER);
+			System.err.println("PORT: "+FTPUtil.PORT);
+			System.err.println("ROOT_DIR: "+FTPUtil.ROOT_DIR);
+			System.err.println("USER_READ: "+FTPUtil.USER_READ);
+			System.err.println("SENHA_READ: "+FTPUtil.SENHA_READ);
+			System.err.println("USER_WRITE: "+FTPUtil.USER_WRITE);
+			System.err.println("SENHA_WRITE: "+FTPUtil.SENHA_WRITE);
+			//System.err.println("Conexao nao Configurado!");
 		}
 
 	}
