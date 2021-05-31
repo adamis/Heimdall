@@ -30,4 +30,10 @@ public class ListController {
 		return response;
 	}
 
+	@GetMapping("/all")
+	public  ResponseEntity<Object> listAll(@Valid @RequestParam("folder") String folder) {
+		ResponseEntity<Object> response = listService.listAll(folder);
+		return response;
+	}
+	
 }

@@ -51,5 +51,24 @@ public class ListService {
 		
 		return response;
 	}
+
+	public ResponseEntity<Object> listAll(@Valid String folder) {
+		FTPConectionONE ftpConection = new FTPConectionONE();
+		ResponseEntity<Object> response = null;
+		try {
+		
+			FTPList ftpList = new FTPList(ftpConection);
+			ftpList.setWorkbase(folder);
+			FTPFile[] folders = ftpList.getFilesFolders();
+			
+			response = ResponseEntity.ok().body(folders);	
+			
+		} catch (Exception e) {
+			response = ResponseEntity.badRequest().body("Erro Interno!");
+			e.printStackTrace();
+		}
+		
+		return response;
+	}
 	
 }
