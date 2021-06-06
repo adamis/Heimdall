@@ -6,13 +6,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class HeimdallApiApplication {
 	
-	public static void main(String[] args) {
-		
-		
+	public static void main(String[] args) {	
 		SpringApplication.run(HeimdallApiApplication.class, args);
 	}
 	
-	
-	
-
 }
