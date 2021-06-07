@@ -1,2 +1,2 @@
 # Heimdall
-Gerenciador de DOWNLOAD e UPLOAD
+Gerenciador de DOWNLOAD e UPLOAD via FTP
