@@ -38,6 +38,12 @@ public class LoadConfigs {
 
 				if(temp.contains("<root_dir>")) {				
 					FTPUtil.ROOT_DIR = temp.replace("<root_dir>", "").replace("</root_dir>", "").trim();
+					if(
+							FTPUtil.ROOT_DIR.endsWith("/") ||
+							FTPUtil.ROOT_DIR.endsWith("\\")
+					) {
+						FTPUtil.ROOT_DIR = FTPUtil.ROOT_DIR.substring(0, FTPUtil.ROOT_DIR.length()-1);
+					}
 				}
 
 				if(temp.contains("<user_read>")) {
@@ -58,21 +64,21 @@ public class LoadConfigs {
 
 			}
 
-			System.err.println("SERVER: "+FTPUtil.SERVER);
-			System.err.println("PORT: "+FTPUtil.PORT);
-			System.err.println("ROOT_DIR: "+FTPUtil.ROOT_DIR);
-			System.err.println("USER_READ: "+FTPUtil.USER_READ);
-			System.err.println("SENHA_READ: "+FTPUtil.SENHA_READ);
-			System.err.println("USER_WRITE: "+FTPUtil.USER_WRITE);
-			System.err.println("SENHA_WRITE: "+FTPUtil.SENHA_WRITE);
+			System.out.println("SERVER: "+FTPUtil.SERVER);
+			System.out.println("PORT: "+FTPUtil.PORT);
+			System.out.println("ROOT_DIR: "+FTPUtil.ROOT_DIR);
+			System.out.println("USER_READ: "+FTPUtil.USER_READ);
+			System.out.println("SENHA_READ: "+FTPUtil.SENHA_READ);
+			System.out.println("USER_WRITE: "+FTPUtil.USER_WRITE);
+			System.out.println("SENHA_WRITE: "+FTPUtil.SENHA_WRITE);
 		}else {
-			System.err.println("SERVER: "+FTPUtil.SERVER);
-			System.err.println("PORT: "+FTPUtil.PORT);
-			System.err.println("ROOT_DIR: "+FTPUtil.ROOT_DIR);
-			System.err.println("USER_READ: "+FTPUtil.USER_READ);
-			System.err.println("SENHA_READ: "+FTPUtil.SENHA_READ);
-			System.err.println("USER_WRITE: "+FTPUtil.USER_WRITE);
-			System.err.println("SENHA_WRITE: "+FTPUtil.SENHA_WRITE);
+			System.out.println("SERVER: "+FTPUtil.SERVER);
+			System.out.println("PORT: "+FTPUtil.PORT);
+			System.out.println("ROOT_DIR: "+FTPUtil.ROOT_DIR);
+			System.out.println("USER_READ: "+FTPUtil.USER_READ);
+			System.out.println("SENHA_READ: "+FTPUtil.SENHA_READ);
+			System.out.println("USER_WRITE: "+FTPUtil.USER_WRITE);
+			System.out.println("SENHA_WRITE: "+FTPUtil.SENHA_WRITE);
 			//System.err.println("Conexao nao Configurado!");
 		}
 

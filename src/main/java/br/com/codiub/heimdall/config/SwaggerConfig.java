@@ -28,7 +28,7 @@ public class SwaggerConfig {
 
 	private ApiInfo apiInfo() {
 		return new ApiInfoBuilder()
-				.title("Nome do Projeto")
+				.title("Heimdall")
 				.description("Documentação da API")
 				.version("1.0")
 				.build();

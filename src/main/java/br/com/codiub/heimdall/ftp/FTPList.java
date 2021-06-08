@@ -17,7 +17,7 @@ public class FTPList {
 	private void conect() throws Exception {		
 		this.ftp = ftpConection.conectRead();
 
-		int reply = ftp.getReplyCode();
+		int reply = ftp.getReplyCode();		
 		if (!FTPReply.isPositiveCompletion(reply)) {
 			ftp.disconnect();
 		}

@@ -24,6 +24,11 @@ public class DeleteService {
 			
 			FTPDelete ftpDeleteFolder = new FTPDelete(ftpConection);
 			
+			//Checagem de Pasta
+			if(!folder.endsWith("/") || !folder.endsWith("\\")) {
+				folder = "/"+folder;
+			}
+			
 			String removeDirectory = ftpDeleteFolder.removeDirectory(folder);
 			result.setMessage(""+removeDirectory);
 			
