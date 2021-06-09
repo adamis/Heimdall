@@ -17,7 +17,7 @@ public class FTPList {
 	private void conect() throws Exception {		
 		this.ftp = ftpConection.conectRead();
 
-		int reply = ftp.getReplyCode();
+		int reply = ftp.getReplyCode();		
 		if (!FTPReply.isPositiveCompletion(reply)) {
 			ftp.disconnect();
 		}
@@ -32,8 +32,30 @@ public class FTPList {
 		if(!ftp.isConnected()) {
 			conect();
 		}
-		ftp.changeWorkingDirectory(FTPUtil.ROOT_DIR+workFolder);
+		System.err.println(""+FTPUtil.ROOT_DIR+"/"+workFolder);
+		ftp.changeWorkingDirectory(FTPUtil.ROOT_DIR+"/"+workFolder);
 
+	}
+	
+	public boolean checkDirectoryExists(String dirPath) throws Exception {
+		
+		if(!ftp.isConnected()) {
+			conect();
+		}
+		
+		//conect();
+		
+		dirPath = FTPUtil.ROOT_DIR+"/"+dirPath;
+		
+	    ftp.changeWorkingDirectory(dirPath);
+	    int returnCode = ftp.getReplyCode();
+	    
+	    disconect();
+	    
+	    if (returnCode == 550) {
+	        return false;
+	    }
+	    return true;
 	}
 
 	public FTPFile[] getFiles() throws Exception {

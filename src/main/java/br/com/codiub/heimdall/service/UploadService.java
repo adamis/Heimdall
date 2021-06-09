@@ -3,7 +3,6 @@ package br.com.codiub.heimdall.service;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.text.SimpleDateFormat;
-import java.util.Date;
 
 import javax.validation.Valid;
 
@@ -18,8 +17,10 @@ import com.google.common.io.Files;
 import br.com.codiub.heimdall.ftp.FTPConectionONE;
 import br.com.codiub.heimdall.ftp.FTPCreateFolder;
 import br.com.codiub.heimdall.ftp.FTPUpload;
+import br.com.codiub.heimdall.ftp.FTPUtil;
 import br.com.codiub.heimdall.response.Response;
 import br.com.codiub.heimdall.response.UploadFileResponse;
+import br.com.codiub.heimdall.utils.NTP;
 import br.com.codiub.heimdall.utils.Utils;
 
 @Service
@@ -29,7 +30,6 @@ public class UploadService {
 	
 	public ResponseEntity<Response<UploadFileResponse>> uploadFile(@Valid String folder, @Valid MultipartFile file,
 			Boolean trueName) {
-		
 
 		FTPConectionONE ftpConection = new FTPConectionONE();
 		ResponseEntity<Response<UploadFileResponse>> response = null;
@@ -45,8 +45,7 @@ public class UploadService {
 			//NORMALIZANDO A URL DA PASTA REMOVEND / e \
 			folder = Utils.cleanFolderUrl(folder);
 			
-
-			
+			//folder = FTPUtil.ROOT_DIR+"/"+folder;			
 			FTPUpload ftpUpload = new FTPUpload(ftpConection);
 			FTPCreateFolder ftpCreateFolder = new FTPCreateFolder(ftpConection);
 
@@ -54,7 +53,7 @@ public class UploadService {
 			if(trueName) {
 				fileTemp = new File(Files.createTempDir(), file.getOriginalFilename());
 			}else {
-				fileTemp = new File(Files.createTempDir(), simpleDateFormat.format(new Date())+"."+FilenameUtils.getExtension(file.getOriginalFilename()));	
+				fileTemp = new File(Files.createTempDir(), simpleDateFormat.format(NTP.getDateTime())+"."+FilenameUtils.getExtension(file.getOriginalFilename()));	
 			}
 			
 			
@@ -71,7 +70,7 @@ public class UploadService {
 				uploadFileResponse.setFolderName(folder+"/");
 				uploadFileResponse.setFileDownloadUri(folder+"/"+fileTemp.getName()); 
 				uploadFileResponse.setFileType(file.getContentType());
-				uploadFileResponse.setDataImportacao(new Date());
+				uploadFileResponse.setDataImportacao(NTP.getDateTime());
 				uploadFileResponse.setSize(file.getSize());
 				
 				result.setResult(uploadFileResponse);
@@ -121,7 +120,7 @@ public class UploadService {
 		try {
 			//NORMALIZANDO A URL DA PASTA REMOVEND / e \
 			folder = Utils.cleanFolderUrl(folder);
-			
+			folder = FTPUtil.ROOT_DIR+folder;
 			
 			FTPUpload ftpUpload = new FTPUpload(ftpConection);
 			FTPCreateFolder ftpCreateFolder = new FTPCreateFolder(ftpConection);
@@ -150,7 +149,7 @@ public class UploadService {
 					uploadFileResponse.setFolderName(folder+"/");
 					uploadFileResponse.setFileDownloadUri(folder+"/"+fileTemp.getName()); 
 					uploadFileResponse.setFileType(file.getContentType());
-					uploadFileResponse.setDataImportacao(new Date());
+					uploadFileResponse.setDataImportacao(NTP.getDateTime());
 					uploadFileResponse.setSize(file.getSize());
 					
 					result.setResult(uploadFileResponse);

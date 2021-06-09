@@ -18,13 +18,18 @@ public class CreateFolderService {
 		Response<Object> result = new Response<>();
 		ResponseEntity<Response<Object>> response = null;
 		try {
-			
+
 			FTPCreateFolder ftpCreateFolder = new FTPCreateFolder(ftpConection);
+
+			//Checagem de Pasta
+			if(!folder.endsWith("/") || !folder.endsWith("\\")) {
+				folder = "/"+folder;
+			}			
 
 			if(ftpCreateFolder.checkDirectoryExists(folder)) {				
 				result.setMessage("Impossivel criar. Diretorio existente!");
 				result.setCode(400);
-				
+
 				response = ResponseEntity.status(HttpStatus.BAD_REQUEST).body(result);
 			}else {
 				boolean createFolder = ftpCreateFolder.createFolder(folder);

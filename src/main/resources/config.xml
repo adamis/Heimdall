@@ -2,14 +2,14 @@
 
 <configs>
 
-	<server>192.168.100.25</server>
+	<server>192.168.100.4</server>
 	<port>21</port>
-	<root_dir>/</root_dir>
+	<root_dir>/home/adamis/ftps/</root_dir>
 	
-	<user_read>admin</user_read>
-	<senha_read>admin</senha_read>
+	<user_read>adamis</user_read>
+	<senha_read>q1w2e3r4</senha_read>
 	
-	<user_write>admin</user_write>
-	<senha_write>admin</senha_write>
+	<user_write>adamis</user_write>
+	<senha_write>q1w2e3r4</senha_write>
 	
 </configs>

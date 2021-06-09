@@ -16,16 +16,16 @@ public class FTPDelete {
 		this.ftpConection = ftpConection;
 		conect();
 	}
-
-	private void conect() throws Exception {
+	
+	private void conect() throws Exception {		
 		this.ftp = ftpConection.conectWrite();
-		//ftp.enterLocalPassiveMode();
-
 		int reply = ftp.getReplyCode();
+		
 		if (!FTPReply.isPositiveCompletion(reply)) {
 			ftp.disconnect();
 		}
 	}
+	
 	
 	private void disconect() throws Exception {
 		ftpConection.closeFTP();
@@ -38,14 +38,17 @@ public class FTPDelete {
 			conect();
 		}
 		
-		parentDir = FTPUtil.ROOT_DIR+parentDir;
-
+		parentDir = FTPUtil.ROOT_DIR+parentDir;		
 		String result = "";
 		try {
 
 			if (!FTPUtil.ROOT_DIR.equals(parentDir)) {
 				removeDirAndFiles(parentDir, "");
 
+				if(!ftp.isConnected()) {
+					conect();
+				}
+				
 				// finally, remove the directory itself
 				boolean removed = ftp.removeDirectory(parentDir);
 				if (removed) {
@@ -59,6 +62,7 @@ public class FTPDelete {
 
 		} catch (Exception e) {
 			result = "Erro ao remover pasta: " + parentDir+" ERRO: "+e.getMessage();
+			e.printStackTrace();
 		}
 		
 		disconect();
@@ -98,7 +102,7 @@ public class FTPDelete {
 		if (!currentDir.equals("")) {
 			dirToList += "/" + currentDir;
 		}
-
+		System.err.println("dirToList: "+dirToList);
 		FTPFile[] subFiles = ftp.listFiles(dirToList);
 
 		if (subFiles != null && subFiles.length > 0) {

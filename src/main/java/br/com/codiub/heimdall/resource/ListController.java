@@ -31,7 +31,7 @@ public class ListController {
 	}
 
 	@GetMapping("/all")
-	public  ResponseEntity<Object> listAll(@Valid @RequestParam("folder") String folder) {
+	public  ResponseEntity<Object> listAll(@RequestParam("folder") String folder) {
 		ResponseEntity<Object> response = listService.listAll(folder);
 		return response;
 	}
