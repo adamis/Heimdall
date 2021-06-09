@@ -6,7 +6,7 @@ import org.springframework.http.MediaType;
 public class Utils {
 
 	public static String cleanFolderUrl(String folder) {	
-		if((folder.length() > 0 && folder.substring(0,1).equals("/")) || (folder.length() > 0 && folder.substring(0,1).equals("\\"))) {
+		if((folder.length() > 0 && folder.startsWith("/")) || (folder.length() > 0 && folder.startsWith("\\"))) {
 			folder = folder.substring(1, folder.length());
 		}		
 		if((folder.length() > 0 && folder.endsWith("/")) || (folder.length() > 0 &&folder.endsWith("\\"))) {

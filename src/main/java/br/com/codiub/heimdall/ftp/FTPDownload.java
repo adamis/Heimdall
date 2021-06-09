@@ -37,7 +37,7 @@ public class FTPDownload {
 		File fileTemp = new File(Files.createTempDir(), file);
 		fileTemp.deleteOnExit();
 		
-		file = FTPUtil.ROOT_DIR+folder+"/"+file;	
+		file = FTPUtil.ROOT_DIR+"/"+folder+"/"+file;	
 		
 		FileOutputStream fileOutputStream = new FileOutputStream(fileTemp);
 		OutputStream outputStream = new BufferedOutputStream(fileOutputStream);
