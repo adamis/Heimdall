@@ -39,11 +39,10 @@ public class FTPUpload {
 		}
 		
 	
-		folder = FTPUtil.ROOT_DIR+folder;
-		InputStream inputStream = new FileInputStream(file);
-
-	
+		folder = FTPUtil.ROOT_DIR+"/"+folder;
+		System.err.println("folder1: "+folder);
 		
+		InputStream inputStream = new FileInputStream(file);		
 		OutputStream outputStream = ftp.storeFileStream(folder+"/"+file.getName());
 		byte[] bytesIn = new byte[4096];
 		int read = 0;

@@ -64,23 +64,18 @@ public class LoadConfigs {
 
 			}
 
-			System.out.println("SERVER: "+FTPUtil.SERVER);
-			System.out.println("PORT: "+FTPUtil.PORT);
-			System.out.println("ROOT_DIR: "+FTPUtil.ROOT_DIR);
-			System.out.println("USER_READ: "+FTPUtil.USER_READ);
-			System.out.println("SENHA_READ: "+FTPUtil.SENHA_READ);
-			System.out.println("USER_WRITE: "+FTPUtil.USER_WRITE);
-			System.out.println("SENHA_WRITE: "+FTPUtil.SENHA_WRITE);
-		}else {
-			System.out.println("SERVER: "+FTPUtil.SERVER);
-			System.out.println("PORT: "+FTPUtil.PORT);
-			System.out.println("ROOT_DIR: "+FTPUtil.ROOT_DIR);
-			System.out.println("USER_READ: "+FTPUtil.USER_READ);
-			System.out.println("SENHA_READ: "+FTPUtil.SENHA_READ);
-			System.out.println("USER_WRITE: "+FTPUtil.USER_WRITE);
-			System.out.println("SENHA_WRITE: "+FTPUtil.SENHA_WRITE);
+			
+		}else {			
 			//System.err.println("Conexao nao Configurado!");
 		}
+		
+//		System.out.println("SERVER: "+FTPUtil.SERVER);
+//		System.out.println("PORT: "+FTPUtil.PORT);
+//		System.out.println("ROOT_DIR: "+FTPUtil.ROOT_DIR);
+//		System.out.println("USER_READ: "+FTPUtil.USER_READ);
+//		System.out.println("SENHA_READ: "+FTPUtil.SENHA_READ);
+//		System.out.println("USER_WRITE: "+FTPUtil.USER_WRITE);
+//		System.out.println("SENHA_WRITE: "+FTPUtil.SENHA_WRITE);
 
 	}
 

@@ -61,7 +61,7 @@ public class FTPCreateFolder {
 		
 		//conect();
 		
-		dirPath = FTPUtil.ROOT_DIR+dirPath;
+		dirPath = FTPUtil.ROOT_DIR+"/"+dirPath;
 		
 	    ftp.changeWorkingDirectory(dirPath);
 	    int returnCode = ftp.getReplyCode();
